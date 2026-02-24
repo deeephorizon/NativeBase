@@ -15,6 +15,10 @@ export interface InterfaceIconButtonProps
       | '_android'
       | '_ios'
       | '_important'
+      | 'fontFamily'
+      | 'fontSize'
+      | 'fontStyle'
+      | 'fontWeight'
     >,
     Omit<
       IIconProps,
@@ -33,6 +37,10 @@ export interface InterfaceIconButtonProps
       | '_android'
       | '_ios'
       | '_important'
+      | 'fontFamily'
+      | 'fontSize'
+      | 'fontStyle'
+      | 'fontWeight'
     >,
     PlatformProps<IIconButtonProps> {
   /**

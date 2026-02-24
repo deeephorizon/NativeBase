@@ -41,6 +41,7 @@ export function useFormControlProvider(props: IFormControlProps) {
   const labelId = `${nativeID}-label`;
   const feedbackId = `${nativeID}-feedback`;
   const helpTextId = `${nativeID}-helptext`;
+  const inputNativeID = `${nativeID}-input`;
 
   /**
    * Track whether the `FormErrorMessage` has been rendered.
@@ -54,7 +55,7 @@ export function useFormControlProvider(props: IFormControlProps) {
    */
   const [hasHelpText, setHasHelpText] = React.useState(false);
 
-  const context = {
+  return {
     isRequired: !!isRequired,
     isInvalid: !!isInvalid,
     isReadOnly: !!isReadOnly,
@@ -64,13 +65,12 @@ export function useFormControlProvider(props: IFormControlProps) {
     hasHelpText,
     setHasHelpText,
     nativeID,
+    inputNativeID,
     labelId,
     feedbackId,
     helpTextId,
     htmlProps,
   };
-
-  return context;
 }
 
 /**

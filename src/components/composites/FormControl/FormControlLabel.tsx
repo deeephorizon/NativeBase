@@ -43,11 +43,13 @@ const FormControlLabel = (
       // RN web doesn't support htmlFor for Label element yet
       if (props.htmlFor) {
         _ref.current.htmlFor = props.htmlFor;
+      } else if (resolvedProps?.inputNativeID != null) {
+        _ref.current.htmlFor = resolvedProps.inputNativeID;
       } else if (resolvedProps?.nativeID) {
         _ref.current.htmlFor = resolvedProps.nativeID;
       }
     }
-  }, [resolvedProps?.nativeID, props.htmlFor]);
+  }, [resolvedProps?.inputNativeID, resolvedProps?.nativeID, props.htmlFor]);
 
   return (
     <Box

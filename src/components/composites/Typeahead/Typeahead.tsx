@@ -3,7 +3,7 @@ import { useButton } from '@react-native-aria/button';
 import { ComboBoxState, useComboBoxState } from '@react-stately/combobox';
 import { useComboBox } from '@react-native-aria/combobox';
 import { useListBox, useOption } from '@react-native-aria/listbox';
-import { ScrollView, findNodeHandle, Platform } from 'react-native';
+import { ScrollView, Platform } from 'react-native';
 import { Item } from '@react-stately/collections';
 import Box from '../../primitives/Box';
 import { Pressable } from '../../primitives/Pressable';
@@ -176,11 +176,7 @@ function ListBoxPopup(props: IListBoxProps) {
           {...listBoxProps}
           keyboardShouldPersistTaps="handled"
           ref={(node) => {
-            if (Platform.OS === 'web') {
-              listBoxRef.current = findNodeHandle(node);
-            } else {
-              listBoxRef.current = node;
-            }
+            listBoxRef.current = node;
           }}
         >
           {[...state.collection].map((item) => (
