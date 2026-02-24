@@ -13,12 +13,13 @@ export function useScreenReaderEnabled() {
 
   React.useEffect(() => {
     mountedRef.current = true;
+
     async function setInitialValue() {
       const res = await AccessibilityInfo.isScreenReaderEnabled();
       handleSetEnabled(res);
     }
 
-    let handler: any = AccessibilityInfo.addEventListener(
+    const subscription = AccessibilityInfo.addEventListener(
       'screenReaderChanged',
       (event: any) => {
         handleSetEnabled(event);
@@ -26,9 +27,10 @@ export function useScreenReaderEnabled() {
     );
 
     setInitialValue();
+
     return () => {
       mountedRef.current = false;
-      AccessibilityInfo.removeEventListener('screenReaderChanged', handler);
+      subscription.remove();
     };
   });
 

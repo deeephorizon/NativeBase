@@ -1,15 +1,15 @@
 import type { SwitchProps } from 'react-native';
 import type {
+  ColorSchemeType,
   CustomProps,
-  ThemeComponentSizeType,
   ResponsiveValue,
+  ThemeComponentSizeType,
 } from '../../../components/types';
 import type { IColors } from '../../../theme/base/colors';
 import type { InterfaceBoxProps } from '../Box';
-import type { ColorSchemeType } from '../../../components/types';
 
 export interface InterfaceSwitchProps
-  extends Omit<SwitchProps, 'tintColor'>,
+  extends Omit<SwitchProps, 'tintColor' | 'children'>,
     InterfaceBoxProps<ISwitchProps> {
   /**
    * The size (width and height) of the switch.
