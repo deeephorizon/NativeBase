@@ -83,7 +83,7 @@
     "jest-environment-jsdom": "^30.2.0",
     "lint-staged": "^11.1.1",
     "metro-react-native-babel-preset": "^0.77.0",
-    "patch-package": "^8.0.0",
+    "patch-package": "^8.0.1",
     "pod-install": "^0.1.0",
     "postinstall-postinstall": "^2.1.0",
     "prettier": "^2.0.5",
