@@ -1,6 +1,6 @@
 import React from 'react';
 import { useEffect } from 'react';
-import { BackHandler } from 'react-native';
+import { BackHandler, NativeEventSubscription } from 'react-native';
 
 type IParams = {
   enabled?: boolean;
@@ -44,17 +44,20 @@ export const useKeyboardDismissable = ({ enabled, callback }: IParams) => {
 
 export function useBackHandler({ enabled, callback }: IParams) {
   useEffect(() => {
-    let subscription: { remove: () => void } | undefined;
+    let subscription: NativeEventSubscription | undefined;
+
     const backHandler = () => {
       callback();
       return true;
     };
+
     if (enabled) {
       subscription = BackHandler.addEventListener(
         'hardwareBackPress',
         backHandler
       );
     }
+
     return () => subscription?.remove();
   }, [enabled, callback]);
 }
